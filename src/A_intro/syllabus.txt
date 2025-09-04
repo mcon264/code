@@ -1,0 +1,51 @@
+MCON 264: Data Structures I
+
+Instructor: Moshe Lach
+Email: mlach@touro.edu
+Office hours: right before and after class
+    Also available on Zoom throughout the week
+Class meetings: Wednesday 8:20-10:30
+                Plus one asynchronous class (late Sept./early Oct.)
+
+Grade breakdown:
+- 5 quizzes (9/17, 10/29, 11/19, 12/10, 12/31): 12% each, 60% total
+    - heavily based on HW
+- homework: 10%
+- final (1/14/26): 30%
+
+Topics:
+
+Intro:
+- Java 25
+- throwing exceptions, method preconditions
+
+Algorithms:
+- recursion
+- binary search
+- sorting
+- big Oh notation
+
+ADTs:
+- interfaces
+- generics
+- Comparable
+- Comparator
+- intro to the JCF (List, Set, Map, etc.)
+
+Data structures:
+- working with arrays
+- working with linked nodes
+- stack: implementation and applications
+- queue
+- deque
+- lists
+- hash tables
+- trees: binary trees, BSTs
+- heaps
+
+For each data structure: implementation, applications, how it's represented in the JCF
+
+If there's extra time:
+- advanced JCF
+- lambda expressions
+- streams (java.util.stream package)
