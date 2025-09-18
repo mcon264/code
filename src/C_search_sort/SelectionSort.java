@@ -1,17 +1,19 @@
 package C_search_sort;
 
 /*
-Sorting: putting a list/array of elements into non-decreasing order.
+Sorting: putting an array of elements into non-decreasing order.
 
-Selection sort: orders a list of values by repeatedly putting
+Selection sort: sort a list of values by repeatedly putting
 the smallest unplaced value into its final position.
 On each pass, we select the min and put it in its proper place.
 
-The algorithm:
+The algorithm in more detail:
 - Look through the list to find the smallest value.
 - Swap it so that it is at index 0.
 - Look through the list to find the second-smallest value.
 - Swap it so that it is at index 1.
+- Look through the list to find the third-smallest value.
+- Swap it so that it is at index 2.
 - ...
 - Repeat until all values are in their proper places.
 
@@ -26,7 +28,8 @@ after pass 5:   {1, 12, 16, 28, 123, | 183}
 are in their final positions.)
 
 With selection sort, we always have to perform n - 1 passes
-for an array of length n.
+for an array of length n. Even if the array happens to be
+sorted already.
  */
 
 import java.util.Arrays;
@@ -40,12 +43,12 @@ public class SelectionSort {
     }
 
     public static void selectionSort(int[] a) {
-        // perform n - 1 passes (where n = arr.length)
+        // perform a.length - 1 passes
         for (int i = 0; i < a.length - 1; i++) {
-            // find the index of min starting from i
+            // find the index of min starting from index i
             int indexOfMin = getIndexOfMin(a, i);
 
-            // swap the min with the element at index i,
+            // swap a[indexOfMin] with a[i],
             // thereby moving the min to its proper place
             swap(a, i, indexOfMin);
 
@@ -55,15 +58,15 @@ public class SelectionSort {
 
     // returns the index of the smallest element starting from startIndex
     private static int getIndexOfMin(int[] a, int startIndex) {
-        int indexOfMinSoFar = startIndex;
+        int indexOfMin = startIndex;
 
         for (int i = startIndex + 1; i < a.length; i++) {
-            if (a[i] < a[indexOfMinSoFar]) {
-                indexOfMinSoFar = i;
+            if (a[i] < a[indexOfMin]) {
+                indexOfMin = i;
             }
         }
 
-        return indexOfMinSoFar;
+        return indexOfMin;
     }
 
     // swaps arr[index1] with arr[index2]

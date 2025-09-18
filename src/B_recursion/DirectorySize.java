@@ -6,12 +6,16 @@ If user enters a file name, prints the size of the file in bytes.
 If the user enters a directory name, prints the total size of all
 files in that directory, going all the way down to sub-directories, 
 sub-sub-directories, etc., as deep as necessary.
+
+File instance methods:
+- length()
+- isDirectory()
+- isFile()
+- listFiles()
 */
 
 void main() {
-    IO.print("Enter the name of a directory or file: ");
-    Scanner scanner = new Scanner(System.in);
-    String name = scanner.next();
+    String name = IO.readln("Enter the name of a directory or file: ");
     File directoryOrFile = new File(name);
     IO.println(computeSize(directoryOrFile) + " bytes");
 }

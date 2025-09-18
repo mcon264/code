@@ -1,17 +1,18 @@
 package C_search_sort;
 
 /*
-Bubble sort: make repeated passes, swapping adjacent values when necessary.
-The larger values bubble up to the end of the array.
+Bubble sort: make repeated passes, swapping adjacent values
+when necessary. The larger values bubble up to the end of
+the array.
 
-Tracing basic version of bubble sort:
-original:     {2, 3, 2, 5, -2, 3, 14, 12}
-after pass 1: {2, 2, 3, -2, 3, 5, 12, | 14}
-after pass 2: {2, 2, -2, 3, 3, 5, | 12, 14}
-after pass 3: {2, -2, 2, 3, 3, | 5, 12, 14}
-after pass 4: {-2, 2, 2, 3, | 3, 5, 12, 14}
-after pass 5: {-2, 2, 2, | 3, 3, 5, 12, 14} (the optimized version stops here)
-after pass 6: {-2, 2, | 2, 3, 3, 5, 12, 14}
+Tracing bubble sort:
+original:     {2, 3, 2, 14, 5, -2, 3, 12}
+after pass 1: {2, 2, 3, 5, -2, 3, 12, | 14}
+after pass 2: {2, 2, 3, -2, 3, 5, | 12, 14}
+after pass 3: {2, 2, -2, 3, 3, | 5, 12, 14}
+after pass 4: {2, -2, 2, 3, | 3, 5, 12, 14}
+after pass 5: {-2, 2, 2, | 3, 3, 5, 12, 14}
+after pass 6: {-2, 2, | 2, 3, 3, 5, 12, 14} (the optimized version stops here)
 after pass 7: {-2, | 2, 2, 3, 3, 5, 12, 14}
 
 (After each pass, everything to the right of the bar is in
@@ -23,10 +24,11 @@ for an array of length n.
 We make an optimization: if, on any given pass, we don't perform
 any swaps, then the array must already be sorted, and we can stop.
 
-What is the best-case scenario for the input, the case where the amount
-of work that has to be performed is as small as possible?
+What is the best-case scenario for the input, the case where the
+amount of work that has to be performed is as small as possible?
+Answer: the array is sorted.
 
-What is the worst-case scenario?
+What is the worst-case scenario? Answer: sorted in reverse order.
  */
 
 public class BubbleSort {
