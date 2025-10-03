@@ -33,7 +33,7 @@ What is the worst-case scenario? Answer: sorted in reverse order.
 
 public class BubbleSort {
     public static void bubbleSort(int[] arr) {
-        // perform n - 1 passes
+        // perform (arr.length - 1) passes
         for (int i = 0; i < arr.length - 1; i++) {
             // go through all elements except the final i elements
             for (int j = 0; j < arr.length - i - 1; j++) {
@@ -53,7 +53,7 @@ public class BubbleSort {
     public static void bubbleSortWithOptimization(int[] arr) {
         boolean swapped = true;
 
-        // makes at most n - 1 passes,
+        // makes at most (arr.length - 1) passes,
         // stopping early if no swaps were made in the previous pass
         for (int i = 0; i < arr.length - 1 && swapped; i++) {
             swapped = false; // no swaps yet in the current pass
