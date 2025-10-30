@@ -1,6 +1,10 @@
 package E_adt.distance;
 
+/**
+ * A measurement of distance.
+ */
 public interface Distance {
+    // a constant (static final field)
     /**
      * Constant used for converting between miles and kilometers:
      * <ul>
@@ -10,6 +14,7 @@ public interface Distance {
      */
     double MI_KM_CONVERSION_CONSTANT = 1.60934;
 
+    // abstract methods
     /**
      * Returns the distance in miles.
      */
@@ -20,16 +25,27 @@ public interface Distance {
      */
     double kilometers();
 
+    // static methods
+    /**
+     * Returns a Distance representing the specified number of miles.
+     */
     static Distance ofMiles(double miles) {
         return new DistanceM(miles);
         // equally valid: return new DistanceK(miles * MI_KM_CONVERSION_CONSTANT);
     }
 
+    /**
+     * Returns a Distance representing the specified number of kilometers.
+     */
     static Distance ofKilometers(double kilometers) {
         return new DistanceK(kilometers);
         // equally valid: return new DistanceM(kilometers / MI_KM_CONVERSION_CONSTANT);
     }
 
+    // default method
+    /**
+     * Returns a Distance representing the sum of this Distance and the provided other Distance.
+     */
     default Distance plus(Distance other) {
         return ofMiles(this.miles() + other.miles());
         // equally valid: return ofKilometers(this.kilometers() + other.kilometers());
