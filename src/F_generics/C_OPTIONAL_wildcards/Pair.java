@@ -1,0 +1,86 @@
+package F_generics.C_OPTIONAL_wildcards;
+
+import java.math.BigInteger;
+import java.util.Objects;
+
+public class Pair<T> {
+    private T first, second;
+
+    public Pair(T first, T second) {
+        this.first = first;
+        this.second = second;
+    }
+
+    public void setFirst(T first) {
+        this.first = first;
+    }
+
+    public void setSecond(T second) {
+        this.second = second;
+    }
+
+    public T getFirst() {
+        return first;
+    }
+
+    public T getSecond() {
+        return second;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + first + ", " + second + ")";
+    }
+
+    /*
+    Suppose p1 is a Pair<String>, and p2 is another Pair.
+    If we say p1.equals(p2), we hope that p2 is also a Pair<String>
+    But the equals method has no way to guarantee this.
+    So, rather than checking if o instanceof Pair<T>, we check if o instanceof Pair<?>.
+    */
+    @Override
+    public boolean equals(Object o) {
+        return o instanceof Pair<?> other
+                && Objects.equals(this.first, other.first)
+                && Objects.equals(this.second, other.second);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(first, second);
+    }
+
+    /**
+     * Copies the values from the other pair into this pair.
+     */
+    public void copyFrom(Pair<? extends T> source) {
+        this.first = source.first;
+        this.second = source.second;
+    }
+
+    /**
+     * Copies the values from this pair into the other pair.
+     */
+    public void copyTo(Pair<? super T> destination) {
+        destination.first = this.first;
+        destination.second = this.second;
+    }
+
+    // When to use extends, and when to use super?
+    // Mnemonic: PECS: producer - extends, consumer - super.
+
+    static void main() {
+        // Integer is the type argument here. For this Pair object, T = Integer
+        Pair<Integer> integerPair = new Pair<>(89, -90); // autoboxing
+
+        Pair<BigInteger> bigIntegerPair = new Pair<>(new BigInteger("5"), new BigInteger("9"));
+
+        Pair<Number> numberPair = new Pair<>(34.7845, new BigInteger("123"));
+
+        numberPair.copyFrom(bigIntegerPair); // here, T = Number
+        IO.println(numberPair);
+
+        integerPair.copyTo(numberPair); // here, T = Integer
+        IO.println(numberPair);
+    }
+}

@@ -31,12 +31,10 @@ ADTs:
 - Comparable
 - Comparator
 - Iterable and Iterator
-- intro to the JCF (List, Set, Map, etc.)
 
 Data structures:
-- working with arrays
-- working with linked nodes
-- stack: implementation and applications
+- linked nodes
+- stack
 - queue
 - deque
 - lists
@@ -44,9 +42,9 @@ Data structures:
 - trees: binary trees, BSTs
 - heaps
 
-For each data structure: implementation, applications, how it's represented in the JCF
+For each data structure: implementations; applications; in the JCF
 
 If there's extra time:
 - advanced JCF
 - lambda expressions
-- streams (java.util.stream package)
+- streams (package java.util.stream)
