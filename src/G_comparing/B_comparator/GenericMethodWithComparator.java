@@ -15,20 +15,11 @@ public class GenericMethodWithComparator {
         IO.println(max(strings, byLength)); // balloon
 
         IO.println(max(strings, Comparator.naturalOrder())); // plane
-
-        List<Integer> integers = List.of(4, 5, 10, 6, 2, 7);
-        Comparator<Number> numberComparator = new Comparator<>() {
-            @Override
-            public int compare(Number n1, Number n2) {
-                return Double.compare(n1.doubleValue(), n2.doubleValue());
-            }
-        };
-        IO.println(max(integers, numberComparator)); // 10
     }
 
-    public static <E> E max(List<E> list, Comparator<? super E> comparator) {
+    public static <E> E max(List<E> list, Comparator<E> comparator) {
         if (list.isEmpty()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("empty list");
         }
 
         E max = list.getFirst();
@@ -40,5 +31,10 @@ public class GenericMethodWithComparator {
         }
 
         return max;
+    }
+
+    // Sorts the specified array using the specified Comparator.
+    public static <E> void sort(E[] arr, Comparator<E> comparator) {
+        // TODO (you can use selection sort or any other algorithm)
     }
 }

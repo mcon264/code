@@ -17,7 +17,7 @@ void main() {
     // It's not enough for the class to simply have a compareTo method;
     // the class must explicitly state that it implements Comparable.
 
-    // similarly with an ArrayList
+    // For a List, we can use Collections.sort
     List<String> stringList = new ArrayList<>();
     stringList.add("car");
     stringList.add("train");
@@ -36,8 +36,17 @@ void main() {
             new Student("Joe", 11111)
     };
     IO.println(Arrays.toString(students));
-    Arrays.sort(students); // uses Student's compareTo method
+    Arrays.sort(students);
+    // Arrays.sort calls Student's compareTo on the elements of
+    // the array, after making sure that they implement Comparable
     IO.println(Arrays.toString(students));
+
+
+    List<Student> studentList = new ArrayList<>();
+    studentList.add(new Student("John", 222));
+    studentList.add(new Student("Joe", 333));
+    studentList.add(new Student("Jane", 111));
+    Collections.sort(studentList);
 
     Product[] products = {
             new Product(666, "apple", 1.25),

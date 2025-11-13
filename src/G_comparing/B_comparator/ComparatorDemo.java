@@ -43,7 +43,13 @@ class ComparatorDemo {
                 new Student("Jill", 11111)
         };
 
-        // Arrays.sort(students); // ClassCastException at runtime
+        // Arrays.sort(students);
+        // ClassCastException at runtime because (this
+        // version of) Student doesn't implement Comparable
+
+        Comparator<Student> byId = new StudentIdComparator();
+        Arrays.sort(students, byId);
+        IO.println("sorted ascending by id: " + Arrays.toString(students));
 
         List<Student> studentList = new ArrayList<>(List.of(
                 new Student("John", 56789),
@@ -51,12 +57,10 @@ class ComparatorDemo {
                 new Student("Jill", 11111)
         ));
         // Collections.sort(studentList); // doesn't compile
+        // because Student doesn't implement Comparable
 
-        Comparator<Student> byAge = new StudentIdComparator();
-        Arrays.sort(students, byAge);
-        IO.println("sorted ascending by id: " + Arrays.toString(students));
-
-        Collections.sort(studentList, byAge);
-        // or: studentList.sort(byAge);
+        // Collections.sort(studentList, byId);
+        // better yet:
+        studentList.sort(byId);
     }
 }

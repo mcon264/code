@@ -55,6 +55,7 @@ public class AnonymousClassDemo {
             public String toString() {
                 String s = super.toString();
                 return "{" + s.substring(1, s.length() - 1) + "}";
+                // replaced [] with {}
             }
         };
         IO.println(customList); // {}
