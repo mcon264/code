@@ -30,14 +30,13 @@ ADTs:
 - generics
 - Comparable
 - Comparator
-- Iterable and Iterator
 
 Data structures:
 - linked nodes
 - stack
 - queue
 - deque
-- lists
+- lists, Iterable, and Iterator
 - hash tables
 - trees: binary trees, BSTs
 - heaps
