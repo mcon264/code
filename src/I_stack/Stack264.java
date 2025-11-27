@@ -15,10 +15,16 @@ public interface Stack264<E> {
     void push(E e);
 
     /**
-     * Pops the top element off the stack and returns it.
+     * Removes top element of the stack and returns it.
      * Throws a NoSuchElementException if the stack is empty.
      */
     E pop();
+
+    /**
+     * Returns top element of the stack without removing it.
+     * Throws a NoSuchElementException if the stack is empty.
+     */
+    E peek();
 
     /**
      * Returns a String containing the elements listed from top to bottom.
