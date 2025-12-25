@@ -20,5 +20,7 @@ private static void demo(Map<String, Integer> map) {
     IO.println("map's keys: " + keys);
     Collection<Integer> values = map.values();
     IO.println("map's values: " + values);
+    Set<Map.Entry<String, Integer>> entries = map.entrySet();
+    IO.println("map's entries: " + entries);
     IO.println();
 }

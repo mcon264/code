@@ -21,11 +21,9 @@ class Name {
 
     @Override
     public boolean equals(Object o) {
-        if (o instanceof Name other) {
-            return this.first.equals(other.first) && this.last.equals(other.last);
-        } else {
-            return false;
-        }
+        return o instanceof Name other
+                && this.first.equals(other.first)
+                && this.last.equals(other.last);
     }
 
     /*
@@ -61,13 +59,21 @@ class Name {
 // uses Names as keys, will not work correctly.
 public class HashCodeEffectDemo {
     static void main() {
+        Name name1 = new Name("Jane", "Doe");
+        Name name2 = new Name("Jane", "Doe");
+        // name1 and name2 refer to distinct objects.
+        // the objects are not identical, but they are equal because we overrode the equals method
+        // The default hashCode method generally returns distinct ints
+        // for distinct objects, even if those objects are considered
+        // equal. This is bad, so we have to override hashCode.
+
         Set<Name> set = new HashSet<>();
         set.add(new Name("Jane", "Doe"));
-        IO.println("set = " + set);
+        IO.println("set = " + set); // [Jane Doe]
         IO.println("set contains Jane Doe? " +
-                           set.contains(new Name("Jane", "Doe")));
+                set.contains(new Name("Jane", "Doe"))); // false
         set.add(new Name("Jane", "Doe"));
-        IO.println("set = " + set);
+        IO.println("set = " + set); // [Jane Doe, Jane Doe]
         IO.println();
 
         Map<Name, Integer> map = new HashMap<>();
